@@ -1,0 +1,45 @@
+﻿<a class="nav-link text-primary" asp-area="" asp-controller="Home" asp-action="Login">Login</a>
+    
+ @model Repository.Models.Users;
+
+    @{
+        ViewData["Title"] = "Home Page";
+    }
+
+    <div class="container">
+
+        <form asp-controller="Home" asp-action="Register">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="form-group">
+                        <label>FullName:</label>
+                        @Html.TextBoxFor(m => m.FullName, new { @class = "form-control", @name = "FullName" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email:</label>
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @name = "Email" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password:</label>
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @name = "Password" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Confirm Password:</label>
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @name = "ConfirmPassword" })
+                    </div>
+
+                    <div>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </div>
+                    <label style="color:red">@ViewBag.message</label>
+
+                    <label style="color:red">
+                        @TempData["message"]
+                    </label>
+                </div>
+            </div>
+        </form>
+    </div>
